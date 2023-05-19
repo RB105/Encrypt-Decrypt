@@ -2,8 +2,14 @@ const express = require('express');
 
 const app = express();
 
+require('dotenv').config();
+
 app.use(express.json());
 
-app.listen(3000,()=>{
-    console.log("your server running on this");
+// .env config
+const host = process.env.HOST;
+const port = process.env.PORT;
+
+app.listen(port,host, () => {
+    console.log(`http://${host}:${port}`);
 });
